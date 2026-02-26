@@ -74,6 +74,7 @@ if __name__ == "__main__":
     # Average and weighted average scores
     langs = ["th", "ja", "ko", "id", "vi"]
     err_average = np.mean(list(scores.values()))
+
     new_langs = [k for k in scores if k in langs]
     orig_langs = [k for k in scores if k not in langs]
     err_new = np.mean([scores[k] for k in new_langs])
@@ -82,10 +83,14 @@ if __name__ == "__main__":
     # Update scores
     scores['err-average'] = err_average
     scores['err-weighted'] = err_weighted
+    scores['err-new'] = err_new
+    scores['err-orig'] = err_orig
     
     # Info
     print(f"err-average: {err_average}")
     print(f"err-weighted: {err_weighted}")
+    print(f"err-new: {err_new}")
+    print(f"err-orig: {err_orig}")
 
     with open(save_path, 'w') as score_file:
         score_file.write(json.dumps(scores))

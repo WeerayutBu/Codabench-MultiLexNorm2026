@@ -1,6 +1,6 @@
 import os
-import yaml
 import zipfile
+from datetime import datetime
 
 def zip_files_flat(source_dir, output_zip, flag=None):
     """
@@ -25,6 +25,7 @@ def zip_files_flat(source_dir, output_zip, flag=None):
 
 
 if __name__ == "__main__":
+    ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     dirs = ["dev_phase", "final_phase", "scoring_program", "solution"]
 
     for dir in dirs:
@@ -32,4 +33,12 @@ if __name__ == "__main__":
         output_zip = f"./bundle/{dir}.zip"
         zip_files_flat(source_dir, output_zip)
 
-    zip_files_flat("bundle", "bundle.zip")
+    zip_files_flat("bundle", "outputs/bundle.zip")
+    # Test
+    zip_files_flat("bundle/dev_phase/input_data", f"outputs/{ts}-dev_input_data.zip")
+    zip_files_flat("bundle/dev_phase/reference_data", f"outputs/{ts}-dev_reference_data.zip")
+    # Test
+    zip_files_flat("bundle/final_phase/input_data",f"outputs/{ts}-test_input_data.zip")
+    zip_files_flat("bundle/final_phase/reference_data", f"outputs/{ts}-test_reference_data.zip")
+    # Scoring
+    zip_files_flat("bundle/scoring_program", f"outputs/{ts}-scoring_program.zip")
