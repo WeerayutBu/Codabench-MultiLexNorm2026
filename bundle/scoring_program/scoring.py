@@ -48,6 +48,7 @@ if __name__ == "__main__":
     print('Read label and prediction')
     label = pd.read_json(os.path.join(reference_dir, 'label.json'))
     pred = pd.read_json(os.path.join(prediction_dir, 'predictions.json'))
+    
     assert label['raw'].tolist() == pred['raw'].tolist()
 
     ########################
@@ -63,8 +64,10 @@ if __name__ == "__main__":
         lai, accuracy, err = evaluate(
             raw  = label_lang['raw'].tolist(), 
             gold = label_lang['norm'].tolist(), 
-            pred = pred_lang['norm'].tolist()
+            pred = pred_lang['pred'].tolist()
         )
+
+        err *= 100
         scores[f"{lang}"] = err
         print(f"{lang}: {err}")
 
