@@ -1,0 +1,32 @@
+[
+    {
+        "raw": [
+            "Jeg",
+            "skaelver",
+            "."
+        ],
+        "norm": [
+            "Jeg",
+            "skælver",
+            "."
+        ],
+        "lang": "da"
+    },
+    {
+        "raw": [
+            "Jeg",
+            "stryger",
+            "en",
+            "taendstik",
+            "."
+        ],
+        "norm": [
+            "Jeg",
+            "stryger",
+            "en",
+            "tændstik",
+            "."
+        ],
+        "lang": "da"
+    }
+]

@@ -1,0 +1,59 @@
+version: 2
+title: MultiLexNorm Multilingual Lexical Normalization
+description: For this task, participants are asked to develop a system that performs
+  lexical normalization, the conversion of non-canonical texts to their canonical
+  equivalent form. In particular, this task includes data from 17 languages.
+
+image: image.png
+registration_auto_approve: True  # do not require approval from admin to join the comp
+
+terms: pages/terms.md
+pages:
+  - title: Overview
+    file: pages/overview.md
+
+tasks:
+  - index: 0
+    name: Development Phase
+    description: ''
+    input_data: dev_phase/input_data/
+    reference_data: dev_phase/reference_data/
+    scoring_program: scoring_program/
+  - index: 1
+    name: Test Phase
+    description: ''
+    input_data: final_phase/input_data/
+    reference_data: final_phase/reference_data/
+    scoring_program: scoring_program/
+
+solutions:
+  - index: 0
+    path: solution.zip
+    tasks:
+    - 0
+    - 1
+
+
+phases:
+  - name: Development Phase
+    description: 'Development phase: tune your models.'
+    start: 2026-01-01
+    end: 2026-04-01
+    tasks:
+      - 0
+  - name: Testing Phase
+    description: 'Final Phase: test against unseen data.'
+    max_submissions: 1
+    start: 2026-04-01
+    end: 2026-07-01
+    tasks:
+      - 1
+
+leaderboards:
+  - title: Results
+    key: main
+    columns:
+      - title: Prediction score
+        key: err-weighted
+        index: 0
+        sorting: desc
