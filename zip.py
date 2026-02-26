@@ -33,4 +33,3 @@ if __name__ == "__main__":
         zip_files_flat(source_dir, output_zip)
 
     zip_files_flat("bundle", "bundle.zip")
-    zip_files_flat("submission", "submission.zip")
