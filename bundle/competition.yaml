@@ -44,7 +44,7 @@ phases:
   - name: Testing Phase
     description: 'Final Phase: test against unseen data.'
     max_submissions: 1
-    start: 2026-04-01
+    start: 2026-04-02
     end: 2026-07-01
     tasks:
       - 1
